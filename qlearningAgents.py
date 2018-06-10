@@ -190,7 +190,7 @@ class ApproximateQAgent(PacmanQAgent):
         features = self.featExtractor.getFeatures(state, action)
         correction = reward + self.discount * self.getValue(nextState) - self.getQValue(state, action)
 
-        for f in self.featWeights:
+        for f in features:
             self.featWeights[f] = self.featWeights[f] + self.alpha * correction * features[f]
 
 
